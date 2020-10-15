@@ -52,22 +52,11 @@ def main():
 
     print("\n# 1.3.2\nHow many word tokens are there in the training corpus:\n", len(new_training_data))
 
-    # PRINT
     training_data_unigram_model = []
     for i in range(len(new_training_data) - 1 + 1):
         training_data_unigram_model.append(new_training_data[i:i + 1])
     training_data_unigram_model_tuples = [item[0] for item in training_data_unigram_model]
 
-    # train_data_unigram_lm_string = ""
-    # for x in training_data_unigram_model_tuples:
-    #     train_data_unigram_lm_string += x
-    #     train_data_unigram_lm_string += " "
-    # with open("train_unigram_lm.txt", "w", encoding="utf-8") as output:
-    #     output.write(train_data_unigram_lm_string)
-
-    # Size of train.txt, |V| = 41739 (len(d2.keys()))
-    # Number of unigrams in train.txt = 2568210
-    # Number of bigrams in train.txt = 2568209
     total_word_tokens_in_training_data = 0
     for x in d2.keys():
         total_word_tokens_in_training_data += d2[x]
@@ -79,18 +68,6 @@ def main():
             unigram_dict_training_model[unigram] += 1
         else:
             unigram_dict_training_model[unigram] = 1
-
-    # train_data_bigram_lm_string = ""
-    # for x in training_data_bigram_model_tuples:
-    #     train_data_bigram_lm_string += x
-    #     train_data_bigram_lm_string += " "
-    # with open("train_bigram_lm.txt", "w", encoding="utf-8") as output:
-    #     output.write(train_data_bigram_lm_string)
-
-    # Bigram Add-One Smoothing Training Model
-    # |V| of Train.txt is 41739
-
-    ################################################################################################
 
     d = dict()
     testdoc = open("test.txt", "r")
@@ -157,9 +134,6 @@ def main():
         if x not in d2.keys():
             counter_word_types_test_not_in_training += 1
 
-
-    bigram_type_did_not_occur = 25.316990701606084
-    bigram_token_did_not_occur = 20.95536959553696
     print("\n# 1.3.3\nWhat percentage of word tokens and word types in the test corpus did not occur in training:\n"
           "Percentage Word Tokens:",
           (counter_word_token_test_not_in_training / len(new_test_data_without_unk)) * 100,
@@ -218,9 +192,9 @@ def main():
 
     print("\n# 1.3.4 \nWhat percentage of word tokens and word types in the test corpus did not occur in training? "
           "\nPercentage of Test Bigram Types that do not appear in Training Bigrams:",
-          bigram_type_did_not_occur, '%')
+          (typecounter / len(bigram_test_file_dict.keys())) * 100, '%')
     print("Percentage of Test Bigram Tokens that do not appear in Training Bigrams:",
-          bigram_token_did_not_occur, "%")
+          (tokencounter / tempctr) * 100, "%")
 
     print("\n# 1.3.5\nCompute the log probability of the following sentence ('I look forward to "
           "hearing your reply') under the three models:")
@@ -280,16 +254,6 @@ def main():
     # Bigram model with Add One Smoothing for the sentence "I look forward to hearing your reply ."
     print("\nBigram Model with Add One Smoothing:")
     bigram_types_in_training_counter = len(bigram_dict_training_model.keys())
-
-    # phrase_data_bigram_model = []
-    # for i in range(len(phrase) - 2 + 1):
-    #     phrase_data_bigram_model.append(phrase[i:i + 2])
-    # phrase_data_bigram_list = tuple(tuple(x) for x in phrase_data_bigram_model)
-
-    # Number of tokens in bigram training model.
-    # number_of_tokens_in_bigram_training_dict = 0
-    # for x in bigram_dict_training_model.keys():
-    #     number_of_tokens_in_bigram_training_dict += bigram_dict_training_model[x]
     bigram_add_one_log_probability = 0
     for x in range(len(phrase_data_bigram_list)):
         counter = 0
