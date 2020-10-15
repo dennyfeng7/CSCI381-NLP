@@ -1,6 +1,6 @@
-#NLP Language Modeling
+# NLP Language Modeling
 
-##Instructions
+## Instructions
 1. Verify ``main.py`` is in your current directory.
 2. Launch terminal.
 3. ``cd`` to proper directory where ``main.py`` is located.
