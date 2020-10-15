@@ -27,13 +27,13 @@ been tokenized (i.e. the punctuation has been split off words).
 3. Replace all words occurring in the training data once with the token <unk>. Every word
 in the test data not seen in training should be treated as <unk>.
 
-##1.2 Training the models
+## 1.2 Training the models
 Using train.txt, train the following language models:
 1. A unigram maximum likelihood model.
 2. A bigram maximum likelihood model.
 3. A bigram model with Add-One smoothing.
 
-##1.3 Questions
+## 1.3 Questions
 1. How many word types (unique words) are there in the training corpus? Please include
 the padding symbols and the unknown token.
 2. How many word tokens are there in the training corpus?
