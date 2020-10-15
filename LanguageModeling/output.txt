@@ -1,0 +1,79 @@
+# 1.3.1
+How many word types are there in the training corpus:
+ 41739
+
+# 1.3.2
+How many word tokens are there in the training corpus:
+ 2568210
+
+# 1.3.3
+What percentage of word tokens and word types in the test corpus did not occur in training:
+Percentage Word Tokens: 2.788428023701638 %
+Percentage Word Types: 1.7605633802816902 %
+
+# 1.3.4
+What percentage of word tokens and word types in the test corpus did not occur in training?
+Percentage of Test Bigram Types that do not appear in Training Bigrams: 25.316990701606084 %
+Percentage of Test Bigram Tokens that do not appear in Training Bigrams: 20.95536959553696 %
+
+# 1.3.5
+Compute the log probability of the following sentence ('I look forward to hearing your reply') under the three models:
+
+Unigram Maximum Likelihood Model:
+Log probability of <s> : -4.682691269922203
+Log probability of i : -8.450963962476674
+Log probability of look : -12.032588480668233
+Log probability of forward : -12.403588495460756
+Log probability of to : -5.597321004705777
+Log probability of hearing : -13.584972612278133
+Log probability of your : -11.043218291645285
+Log probability of reply : -17.591892026217923
+Log probability of . : -4.868854680279238
+Log probability of </s> : -4.682691269922203
+Unigram Log Probability of Sentence:  -94.93878209357644
+
+Bigram Maximum Likelihood Model:
+Log probability of ('<s>', 'i') : -10.322225291995528
+Log probability of ('i', 'look') : -17.38544058699919
+Log probability of ('look', 'forward') : -16.20486834135737
+Log probability of ('forward', 'to') : -14.648474992832984
+Log probability of ('to', 'hearing') : -18.707368681886553
+Log probability of ('hearing', 'your') : undefined
+Log probability of ('your', 'reply') : undefined
+Log probability of ('reply', '.') : undefined
+Log probability of ('.', '</s>') : -4.953455550476145
+Bigram Log Probability of Sentence:  undefined
+
+Bigram Model with Add One Smoothing:
+Add-One Log probability of ('<s>', 'i') : -10.687794541473984
+Add-One Log probability of ('i', 'look') : -17.6586194428366
+Add-One Log probability of ('look', 'forward') : -16.529336425891636
+Add-One Log probability of ('forward', 'to') : -15.000407960084805
+Add-One Log probability of ('to', 'hearing') : -18.851264520778997
+Add-One Log probability of ('hearing', 'your') : -21.6586194428366
+Add-One Log probability of ('your', 'reply') : -21.6586194428366
+Add-One Log probability of ('reply', '.') : -21.6586194428366
+Add-One Log probability of ('.', '</s>') : -5.319726405455323
+Add-One Bigram Log Probability of Sentence:  -149.02300762503114
+
+# 1.3.6
+Compute the perplexity of the sentence above under each of the models:
+
+Perplexity of the sentence under Unigram MLE:  721.0113746656128
+Perplexity of the sentence under Bigram MLE: undefined
+Perplexity of the sentence under Bigram Add One Smoothing:  30622.421775643772
+
+# 1.3.7
+Compute the perplexity of the entire test corpus under each of the models:
+Perplexity of Test Corpus under Unigram MLE:  35.98714652941937
+Perplexity of Test Corpus under Bigram MLE: undefined
+Perplexity of Test Corpus under Bigram Add-One Smoothing:  8.220110675841276e-80
+
+Discuss the differences in the results you obtained:
+For this test corpus, the corpus was already preprocessed. All the words have been filtered so that if it
+only appears once, it would map to unknown. Additionally, the words in the test corpus mapped
+to unknown if it was not seen in the training corpus. With this in mind, the perplexity of the test
+corpus under each  model was very low. Low perplexity means the model predicted the test corpus well.
+This is attributed to the preprocessing where words were filtered through the mapping of unknown.
+In this test corpus, the Bigram with Add-One Smoothing performed better than the Unigram MLE.
+The Bigram MLE did not predict the test corpus as some values were not seen in the training models.
