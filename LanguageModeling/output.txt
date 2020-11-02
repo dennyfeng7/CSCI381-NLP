@@ -1,3 +1,8 @@
+Denny Feng
+CSCI 381 - Natural Language Processing
+Project 1 - Language Modeling
+Output.txt
+
 # 1.3.1
 How many word types are there in the training corpus:
  41739
