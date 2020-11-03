@@ -6,10 +6,10 @@ Project 2 - Fall 2020
 Question 1: 
 Formula: c = argmax P(f_1, f_2, ... , f_n|c) P(c)
 
-Positive:
+P(c) = positive:
 P(0.09, 0.07, 0.29, 0.04, 0.08) * .4 = 0.09 * 0.07 * 0.29 *0.04 * 0.08 * .4 = .00000234
 
-Negative:
+P(c) = negative:
 P(0.16, 0.06, 0.06, 0.15, 0.11) * .6 = 0.16 * 0.06 * 0.06 * 0.15 * 0.11 * .6 = 0.0000057
 
 Answer: Negative Class
